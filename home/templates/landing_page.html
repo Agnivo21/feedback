@@ -1,0 +1,33 @@
+{%extends "base.html" %}
+
+{%block start %}
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">can vote</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for people in peoples %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{people.name}}</td>
+            <td>{{people.age}}</td>
+            <td>
+                {%if people.age >= 18 %}
+                👍
+                {% else %}
+                👎
+                {% endif%}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {{text}}
+
+{% endblock %}
